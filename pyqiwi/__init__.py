@@ -539,3 +539,19 @@ def detect_mobile(phone):
         ID провайдера
     """
     return apihelper.detect(phone)
+
+def detect_provider_cc(cardNumber):
+"""
+    Определение провайдера для банковской карты
+
+    Parameters
+    ----------
+    cardNumber : str
+        Номер банковской карты
+
+    Returns
+    -------
+    str
+        ID провайдера
+"""
+    return apihelper.detect_card(cardNumber)
