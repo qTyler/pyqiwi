@@ -202,7 +202,14 @@ def detect(phone):
         return result_json.get('message')
     else:
         return None
-
+    
+def detect_card(card_number):
+    result_json = requests.post('https://qiwi.com/card/detect.action', data={"cardNumber": card_number})
+    result_json = result_json.json()
+    if result_json.get('code', {}).get('value') == '0':
+        return result_json.get('message')
+    else:
+        return None
 
 def cheque_file(token, txn_id, _type, _format):
     api_method = 'payment-history/v1/transactions/{0}/cheque/file'.format(txn_id)
